@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload list</title>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $.ajax({
+          url: 'http://localhost:1979/uploads',
+          type: 'GET',
+          success: function(uploadArray) {
+            uploadArray.forEach(function(upload) {
+              $("#testImages")
+                .append('<div><img src="' + upload.data +'" /></div>');
+            });
+          }
+        });
+    </script>
+</head>
+<body>
+  <div id="testImages">    
+  </div>
+</body>
+</html>
